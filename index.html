@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bubu Baby's Little World 💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;color:#fff0fa;text-align:center;
+ font-family:system-ui,sans-serif;
+ background:radial-gradient(circle at top,#602052,#210d32 55%,#100817);
+ overflow-x:hidden
+}
+header{padding:22px 12px;background:#16091dcc;position:sticky;top:0;z-index:5}
+h1{color:#ff9bd7;font-family:Georgia,serif;font-size:clamp(2.3rem,9vw,4rem);text-shadow:0 0 20px #ff42b5;margin:12px}
+h2{color:#ffabd9;font-family:Georgia,serif}
+p{line-height:1.6;color:#f8ddec}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+button{
+ color:white;background:#7e235e;border:1px solid #ff9bd7;
+ border-radius:24px;padding:12px 16px;margin:5px;
+ cursor:pointer;transition:.25s;font-size:15px
+}
+button:active{transform:scale(.9)}
+button:hover{background:#c43b8d;box-shadow:0 0 20px #ff6dc6}
+section{padding:32px 14px;max-width:900px;margin:auto}
+.hero{
+ min-height:340px;display:grid;place-items:center;
+ background:linear-gradient(#18071c55,#18071caa),
+ radial-gradient(circle at 50% 45%,#a33479,#371343 55%,#170920);
+ border-radius:0 0 35px 35px;position:relative;overflow:hidden
+}
+.big{font-size:90px;animation:bob 2s infinite;filter:drop-shadow(0 0 20px #ff65bd)}
+@keyframes bob{50%{transform:translateY(-12px) rotate(5deg)}}
+.card{
+ background:#ffffff0c;border:1px solid #ff8bc655;
+ border-radius:22px;padding:18px;margin:9px;
+ box-shadow:0 8px 25px #0003
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.emoji{font-size:43px;display:block;animation:bob 3s infinite}
+#message{min-height:60px;color:#ffe2a9;font-weight:bold;padding:12px}
+#board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:400px;margin:15px auto}
+.cell{font-size:32px;min-height:75px;padding:8px;background:#421641}
+.float{
+ position:fixed;z-index:10;pointer-events:none;
+ animation:rise 2.5s ease-out forwards
+}
+@keyframes rise{
+ 0%{transform:translateY(0) scale(.5);opacity:0}
+ 15%{opacity:1}
+ 100%{transform:translateY(-90vh) rotate(35deg) scale(1.5);opacity:0}
+}
+footer{padding:25px;color:#dca6ce}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header>
+  <div>✨ 🦋 💗 🦋 ✨</div>
+  <h1>Hey, Bubu Baby! ♡</h1>
+  <nav>
+    <button onclick="go('mood')">😊 Mood</button>
+    <button onclick="go('hugs')">🫂 Hugs</button>
+    <button onclick="go('surprise')">🎁 Surprises</button>
+    <button onclick="go('games')">🎮 Games</button>
+  </nav>
+</header>
+
+<div class="hero">
+ <div>
+  <div class="big">🧸💖</div>
+  <h2>Welcome to your little world 🌙</h2>
+  <p>Cutie vibes, tiny games and lovely surprises! ✨</p>
+  <button onclick="magic(this)">Tap to make magic ✨</button>
+ </div>
+</div>
+
+<section id="mood">
+ <h2>🌈 What's your mood?</h2>
+ <p>Choose an emoji and see your little message!</p>
+ <div class="grid">
+  <div class="card"><span class="emoji">🥰</span><button onclick="mood('happy')">Happy</button></div>
+  <div class="card"><span class="emoji">😴</span><button onclick="mood('sleepy')">Sleepy</button></div>
+  <div class="card"><span class="emoji">😤</span><button onclick="mood('angry')">Annoyed</button></div>
+  <div class="card"><span class="emoji">🥺</span><button onclick="mood('sad')">Sad</button></div>
+  <div class="card"><span class="emoji">💅</span><button onclick="mood('cute')">Feeling cute</button></div>
+  <div class="card"><span class="emoji">🫠</span><button onclick="mood('meh')">Just chilling</button></div>
+ </div>
+ <div id="message">Your message appears here 💌</div>
+</section>
+
+<section id="hugs">
+ <h2>🫂 Choose your virtual hug</h2>
+ <div class="grid">
+  <div class="card"><span class="emoji">🧸</span><button onclick="hug('teddy')">Teddy Hug</button></div>
+  <div class="card"><span class="emoji">🐻</span><button onclick="hug('bear')">Bear Squeeze</button></div>
+  <div class="card"><span class="emoji">💗</span><button onclick="hug('heart')">Heart Hug</button></div>
+ </div>
+</section>
+
+<section id="surprise">
+ <h2>🎁 Mystery Surprise Boxes</h2>
+ <p>Tap any box. Each one has a different surprise!</p>
+ <div class="grid">
+  <div class="card"><span class="emoji">🎀</span><button onclick="gift(0)">Pink Box</button></div>
+  <div class="card"><span class="emoji">💜</span><button onclick="gift(1)">Magic Box</button></div>
+  <div class="card"><span class="emoji">🌟</span><button onclick="gift(2)">Secret Box</button></div>
+ </div>
+</section>
+
+<section id="games">
+ <h2>🎮 Mini Game Arcade</h2>
+ <div class="card">
+  <h3>💖 Game 1: Find the Heart</h3>
+  <p>Find the hidden heart in 3 tries!</p>
+  <div id="board"></div>
+  <div id="score">Tries left: 3</div>
+  <button onclick="newHeartGame()">🔄 New Game</button>
+ </div>
+ <div class="card">
+  <h3>🧸 Game 2: Emoji Match</h3>
+  <p>Find two matching emojis!</p>
+  <div id="matchboard" class="grid"></div>
+  <div id="matchmsg">Tap two cards to find a pair.</div>
+  <button onclick="newMatch()">🔄 Restart</button>
+ </div>
+ <div class="card">
+  <h3>⚡ Game 3: Quick Tap</h3>
+  <p>Tap the heart as many times as possible in 10 seconds!</p>
+  <div class="big" id="quickheart">💖</div>
+  <p>Score: <b id="quickscore">0</b></p>
+  <button id="quickstart" onclick="startQuick()">Start Challenge!</button>
+  <button id="quicktap" onclick="tapQuick()" disabled>Tap the Heart 💗</button>
+  <p id="quickmsg"></p>
+ </div>
+</section>
+
+<section>
+ <div class="big">🌙💗🦋</div>
+ <h2>Sending you a little happiness!</h2>
+ <p>May your day have cute moments, peaceful thoughts and plenty of reasons to smile. 💕</p>
+ <button onclick="rainHearts(35)">Make it rain hearts 💖</button>
+</section>
+
+<footer>Made with love ♡ For Bubu Baby</footer>
+
+<script>
+function go(id){
+ document.getElementById(id).scrollIntoView({behavior:'smooth'});
+ rainHearts(6)
+}
+function rainHearts(n=15){
+ const icons=['💗','💖','💕','✨','🌸','🦋','🌟','🎀'];
+ for(let i=0;i<n;i++){
+  const e=document.createElement('span');
+  e.className='float';
+  e.textContent=icons[Math.floor(Math.random()*icons.length)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.bottom='-35px';
+  e.style.fontSize=(20+Math.random()*25)+'px';
+  e.style.animationDuration=(2+Math.random()*2)+'s';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),4500)
+ }
+}
+function magic(b){
+ b.textContent='✨ Magic activated! 💖';
+ b.animate([{transform:'scale(1)'},{transform:'scale(1.2) rotate(4deg)'},{transform:'scale(1)'}],{duration:600});
+ rainHearts(25)
+}
+function mood(m){
+ const text={
+ happy:'Yayyy! Keep shining, cutie! ☀️💖',
+ sleepy:'Blanket, pillow and cozy dreams for you. 🌙🧸',
+ angry:'It’s okay to feel annoyed. Take your time. 🫶',
+ sad:'Sending a gentle hug. You matter, always. 🫂💗',
+ cute:'Madam Ji, main-character energy! 💅✨',
+ meh:'No pressure today. Just breathe and relax. ☁️'
+ };
+ document.getElementById('message').textContent=text[m];
+ rainHearts(12)
+}
+function hug(h){
+ const text={
+ teddy:'🧸 Teddy hug delivered! Extra squishy and warm!',
+ bear:'🐻 Bear squeeze activated! Big virtual hug!',
+ heart:'💗 Heart hug sent with extra love!'
+ };
+ document.getElementById('message').textContent=text[h];
+ rainHearts(25)
+}
+function gift(i){
+ const gifts=[
+ '👑 Surprise! Today you are the queen of this little universe!',
+ '🪄 Magic wish: may something lovely make you smile today!',
+ '🧸 Secret gift: an imaginary teddy with unlimited hugs!'
+ ];
+ document.getElementById('message').textContent=gifts[i];
+ rainHearts(30)
+}
+
+// Game 1: Find the hidden heart
+let heartTarget=0,tries=3,gameOver=false;
+function newHeartGame(){
+ const board=document.getElementById('board');
+ board.innerHTML='';tries=3;gameOver=false;
+ heartTarget=Math.floor(Math.random()*9);
+ for(let i=0;i<9;i++){
+  const b=document.createElement('button');
+  b.className='cell';b.textContent='❔';
+  b.onclick=()=>{
+   if(gameOver||b.disabled)return;
+   b.disabled=true;
+   if(i===heartTarget){
+    b.textContent='💖';gameOver=true;
+    document.getElementById('score').textContent='You found it! You win! 🎉';
+    rainHearts(25)
+   }else{
+    b.textContent=['🌸','🧸','🎀','🦋'][Math.floor(Math.random()*4)];
+    tries--;
+    document.getElementById('score').textContent='Tries left: '+tries;
+    if(tries===0){
+     gameOver=true;
+     document.getElementById('score').textContent='The heart was hiding in box '+(heartTarget+1)+'! 💗';
+     board.children[heartTarget].textContent='💖'
+    }
+   }
+  };
+  board.appendChild(b)
+ }
+}
+newHeartGame();
+
+// Game 2: Match a pair
+let firstCard=null,matchLock=false,matchedCount=0;
+function newMatch(){
+ const emojis=['🐻','🌸','🎀','🐻','🌸','🎀'].sort(()=>Math.random()-.5);
+ const board=document.getElementById('matchboard');
+ board.innerHTML='';firstCard=null;matchLock=false;matchedCount=0;
+ document.getElementById('matchmsg').textContent='Find all 3 pairs!';
+ emojis.forEach((emoji)=>{
+  const b=document.createElement('button');
+  b.className='cell';b.textContent='❔';
+  b.onclick=()=>{
+   if(matchLock||b.disabled)return;
+   b.textContent=emoji;
+   if(!firstCard){firstCard={b,emoji};return}
+   if(firstCard.b===b)return;
+   if(firstCard.emoji===emoji){
+    b.disabled=true;firstCard.b.disabled=true;matchedCount++;
+    firstCard=null;
+    document.getElementById('matchmsg').textContent=matchedCount===3?'All pairs found! Amazing! 🎉':'Correct match! 💗';
+    rainHearts(6)
+   }else{
+    matchLock=true;const prev=firstCard.b;firstCard=null;
+    setTimeout(()=>{b.textContent='❔';prev.textContent='❔';matchLock=false},700)
+   }
+  };
+  board.appendChild(b)
+ })
+}
+newMatch();
+
+// Game 3: 10-second quick tap
+let quickCount=0,quickTime=null,quickActive=false;
+function startQuick(){
+ clearInterval(quickTime);quickCount=0;quickActive=true;
+ document.getElementById('quickscore').textContent='0';
+ document.getElementById('quickmsg').textContent='Go go go! 💖';
+ document.getElementById('quicktap').disabled=false;
+ document.getElementById('quickstart').disabled=true;
+ let remaining=10;
+ document.getElementById('quickstart').textContent=remaining+' seconds';
+ quickTime=setInterval(()=>{
+  remaining--;
+  document.getElementById('quickstart').textContent=remaining+' seconds';
+  if(remaining<=0){
+   clearInterval(quickTime);quickActive=false;
+   document.getElementById('quicktap').disabled=true;
+   document.getElementById('quickstart').disabled=false;
+   document.getElementById('quickstart').textContent='Play Again!';
+   document.getElementById('quickmsg').textContent='Time up! Your score: '+quickCount+' 💗';
+   rainHearts(18)
+  }
+ },1000)
+}
+function tapQuick(){
+ if(!quickActive)return;
+ quickCount++;
+ document.getElementById('quickscore').textContent=quickCount;
+ const h=document.getElementById('quickheart');
+ h.animate([{transform:'scale(1)'},{transform:'scale(1.3)'},{transform:'scale(1)'}],{duration:220});
+ rainHearts(2)
+}
+</script>
+</body>
+</html>
