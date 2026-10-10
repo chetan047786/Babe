@@ -1,299 +1,302 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bubu Baby's Little World 💗</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17091f">
+<title>For Bubu Baby 💗</title>
 <style>
+:root{--pink:#ff72c2;--soft:#ffb7dc;--gold:#ffe0a4;--bg:#16091e}
 *{box-sizing:border-box}
-body{
- margin:0;color:#fff0fa;text-align:center;
- font-family:system-ui,sans-serif;
- background:radial-gradient(circle at top,#602052,#210d32 55%,#100817);
- overflow-x:hidden
-}
-header{padding:22px 12px;background:#16091dcc;position:sticky;top:0;z-index:5}
-h1{color:#ff9bd7;font-family:Georgia,serif;font-size:clamp(2.3rem,9vw,4rem);text-shadow:0 0 20px #ff42b5;margin:12px}
-h2{color:#ffabd9;font-family:Georgia,serif}
-p{line-height:1.6;color:#f8ddec}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-button{
- color:white;background:#7e235e;border:1px solid #ff9bd7;
- border-radius:24px;padding:12px 16px;margin:5px;
- cursor:pointer;transition:.25s;font-size:15px
-}
-button:active{transform:scale(.9)}
-button:hover{background:#c43b8d;box-shadow:0 0 20px #ff6dc6}
-section{padding:32px 14px;max-width:900px;margin:auto}
-.hero{
- min-height:340px;display:grid;place-items:center;
- background:linear-gradient(#18071c55,#18071caa),
- radial-gradient(circle at 50% 45%,#a33479,#371343 55%,#170920);
- border-radius:0 0 35px 35px;position:relative;overflow:hidden
-}
-.big{font-size:90px;animation:bob 2s infinite;filter:drop-shadow(0 0 20px #ff65bd)}
-@keyframes bob{50%{transform:translateY(-12px) rotate(5deg)}}
-.card{
- background:#ffffff0c;border:1px solid #ff8bc655;
- border-radius:22px;padding:18px;margin:9px;
- box-shadow:0 8px 25px #0003
-}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.emoji{font-size:43px;display:block;animation:bob 3s infinite}
-#message{min-height:60px;color:#ffe2a9;font-weight:bold;padding:12px}
-#board{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:400px;margin:15px auto}
-.cell{font-size:32px;min-height:75px;padding:8px;background:#421641}
-.float{
- position:fixed;z-index:10;pointer-events:none;
- animation:rise 2.5s ease-out forwards
-}
-@keyframes rise{
- 0%{transform:translateY(0) scale(.5);opacity:0}
- 15%{opacity:1}
- 100%{transform:translateY(-90vh) rotate(35deg) scale(1.5);opacity:0}
-}
-footer{padding:25px;color:#dca6ce}
-@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#50154b,#16091e 70%);color:#fff0fa;font-family:system-ui,sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+#sky{position:fixed;inset:0;pointer-events:none;z-index:8;overflow:hidden}
+header{position:sticky;top:0;z-index:7;background:#190a20eF;backdrop-filter:blur(15px);padding:13px 18px;border-bottom:1px solid #ff83ce44;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font:italic 1.5rem Georgia;color:var(--soft);text-shadow:0 0 16px var(--pink)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+button{border:1px solid #ff8bd477;border-radius:30px;background:#632052;color:white;padding:10px 14px;transition:.25s}
+button:hover{background:#b82e83;box-shadow:0 0 20px #ff69c966}
+button:disabled{opacity:.5}
+.hero{min-height:76vh;position:relative;display:grid;place-items:center;text-align:center;padding:35px 15px;overflow:hidden;background:radial-gradient(ellipse at 50% 100%,#e04e9a55,transparent 50%),linear-gradient(#16091e44,#16091e77)}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(110deg,transparent 0 65px,#ffb4dd08 66px 68px);pointer-events:none}
+.moon{position:absolute;top:28px;right:9%;font-size:65px;filter:drop-shadow(0 0 20px #ffe0a4);animation:float 4s infinite}
+.lights{position:absolute;top:0;left:0;right:0;font-size:22px;letter-spacing:13px;opacity:.9;animation:twinkle 2s infinite alternate}
+.hero-inner{position:relative;max-width:760px;z-index:1}
+.hero h1{font:clamp(3rem,10vw,6.5rem)/.95 Georgia,serif;margin:14px 0;color:white;text-shadow:0 0 24px #ff5cbb}
+.hero h1 span{display:block;color:var(--soft);font-style:italic}
+.hero p{line-height:1.7;color:#ffe3f3}
+.teddy{font-size:clamp(85px,19vw,150px);filter:drop-shadow(0 0 24px #ff76ca);animation:float 3s ease-in-out infinite}
+.eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:800}
+section{max-width:1150px;margin:auto;padding:48px 16px}
+.heading{text-align:center;margin-bottom:25px}
+h2{font:clamp(2rem,5vw,3.2rem) Georgia,serif;color:var(--soft);margin:10px 0;text-shadow:0 0 15px #ff58b755}
+.sub{max-width:650px;margin:0 auto;line-height:1.7;color:#f5d9eb}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.card{position:relative;overflow:hidden;text-align:center;padding:22px 13px;border:1px solid #ff8bd477;border-radius:24px;background:linear-gradient(145deg,#501844cc,#21102ddd);box-shadow:0 12px 35px #0004;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 32px #ff4db633}
+.emoji{font-size:clamp(2.5rem,7vw,4.5rem);display:block;margin:6px 0 14px;filter:drop-shadow(0 0 13px #ff80ce);animation:float 3s ease-in-out infinite}
+.card:nth-child(even) .emoji{animation-delay:-1.4s}
+.card h3{margin:8px 0;color:white}
+.card p{font-size:.9rem;line-height:1.6;color:#f2cfe4}
+.result{min-height:50px;text-align:center;color:var(--gold);line-height:1.7;padding:15px 5px}
+.glass{border:1px solid #ff9ad755;border-radius:26px;padding:24px;background:#ffffff09;box-shadow:0 12px 45px #0004}
+.letter{background:linear-gradient(140deg,#ffe4f1,#ff9dce);color:#631746;border-radius:24px;padding:28px;text-align:center}
+.letter h2{color:#8d205f;text-shadow:none}
+.letter p{line-height:1.8}
+.letter button{background:#81215e}
+#board{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:400px;margin:18px auto}
+.cell{font-size:clamp(1.7rem,7vw,2.7rem);aspect-ratio:1;padding:5px;border-radius:16px;background:linear-gradient(145deg,#70255f,#2a1139);border:1px solid #ff9edb66}
+.cell.found{background:linear-gradient(145deg,#ffb5dc,#ff65b7);animation:pop .5s}
+.floaty{position:fixed;z-index:10;pointer-events:none;animation:rise 2.5s ease-out forwards;filter:drop-shadow(0 0 8px #ff76ca)}
+@keyframes rise{0%{transform:translateY(0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translateY(-100vh) rotate(40deg) scale(1.4);opacity:0}}
+@keyframes float{50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes twinkle{to{opacity:.4}}
+@keyframes pop{35%{transform:scale(1.2) rotate(-5deg)}70%{transform:scale(.92)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes wiggle{25%{transform:rotate(-7deg) scale(1.1)}75%{transform:rotate(7deg) scale(1.1)}}
+@keyframes glow{50%{box-shadow:0 0 40px #ff75cb}}
+@keyframes flip{50%{transform:perspective(400px) rotateY(180deg)}}
+@keyframes bounce{40%{transform:translateY(-15px)}75%{transform:translateY(4px)}}
+.fx-pop{animation:pop .55s}.fx-spin{animation:spin .7s}.fx-wiggle{animation:wiggle .55s}.fx-glow{animation:glow .8s}.fx-flip{animation:flip .7s}.fx-bounce{animation:bounce .6s}
+footer{text-align:center;color:#dca4c8;padding:28px}
+@media(max-width:650px){header{justify-content:center}.logo{width:100%;text-align:center}nav{justify-content:center}nav button{font-size:.78rem;padding:8px 10px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:65vh}.moon{font-size:48px}}
+@media(max-width:390px){.grid{grid-template-columns:1fr}.card{padding:20px}}
 </style>
 </head>
 <body>
+<div id="sky"></div>
 <header>
-  <div>✨ 🦋 💗 🦋 ✨</div>
-  <h1>Hey, Bubu Baby! ♡</h1>
-  <nav>
-    <button onclick="go('mood')">😊 Mood</button>
-    <button onclick="go('hugs')">🫂 Hugs</button>
-    <button onclick="go('surprise')">🎁 Surprises</button>
-    <button onclick="go('games')">🎮 Games</button>
-  </nav>
+ <div class="logo">For Bubu Baby ♡</div>
+ <nav>
+  <button onclick="go('mood')">😊 Mood</button>
+  <button onclick="go('hugs')">🧸 Hugs</button>
+  <button onclick="go('surprises')">🎁 Surprises</button>
+  <button onclick="go('games')">🎮 Games</button>
+ </nav>
 </header>
 
 <div class="hero">
- <div>
-  <div class="big">🧸💖</div>
-  <h2>Welcome to your little world 🌙</h2>
-  <p>Cutie vibes, tiny games and lovely surprises! ✨</p>
-  <button onclick="magic(this)">Tap to make magic ✨</button>
+ <div class="lights">✦　♡　✧　💗　✧　♡　✦</div>
+ <div class="moon">🌙</div>
+ <div class="hero-inner">
+  <div class="eyebrow">✨ A little universe made for you ✨</div>
+  <div class="teddy">🧸💗</div>
+  <h1>Hey,<span>Bubu Baby ♡</span></h1>
+  <p>🌸 Cute surprises · magical moments · little games 🌸</p>
+  <button onclick="go('mood')">Enter Your World 💖 ↓</button>
  </div>
 </div>
 
 <section id="mood">
- <h2>🌈 What's your mood?</h2>
- <p>Choose an emoji and see your little message!</p>
+ <div class="heading"><div class="eyebrow">🌈 Your little corner</div><h2>What's your mood today?</h2><p class="sub">Choose an emoji to unlock a tiny surprise.</p></div>
  <div class="grid">
-  <div class="card"><span class="emoji">🥰</span><button onclick="mood('happy')">Happy</button></div>
-  <div class="card"><span class="emoji">😴</span><button onclick="mood('sleepy')">Sleepy</button></div>
-  <div class="card"><span class="emoji">😤</span><button onclick="mood('angry')">Annoyed</button></div>
-  <div class="card"><span class="emoji">🥺</span><button onclick="mood('sad')">Sad</button></div>
-  <div class="card"><span class="emoji">💅</span><button onclick="mood('cute')">Feeling cute</button></div>
-  <div class="card"><span class="emoji">🫠</span><button onclick="mood('meh')">Just chilling</button></div>
+  <div class="card"><span class="emoji">🥰</span><h3>Happy</h3><button onclick="mood('happy')">Tap me ☀️</button></div>
+  <div class="card"><span class="emoji">😴</span><h3>Sleepy</h3><button onclick="mood('sleepy')">Tap me 🌙</button></div>
+  <div class="card"><span class="emoji">😤</span><h3>Annoyed</h3><button onclick="mood('annoyed')">Tap me 🫶</button></div>
+  <div class="card"><span class="emoji">🥺</span><h3>Need a hug</h3><button onclick="mood('hug')">Tap me 🧸</button></div>
+  <div class="card"><span class="emoji">💅</span><h3>Feeling cute</h3><button onclick="mood('cute')">Tap me ✨</button></div>
+  <div class="card"><span class="emoji">🫠</span><h3>Just chilling</h3><button onclick="mood('chill')">Tap me ☁️</button></div>
  </div>
- <div id="message">Your message appears here 💌</div>
+ <div class="result" id="moodResult">Your message appears here 💌</div>
 </section>
 
 <section id="hugs">
- <h2>🫂 Choose your virtual hug</h2>
+ <div class="heading"><div class="eyebrow">🫂 Digital hugs delivered</div><h2>Pick your hug</h2></div>
  <div class="grid">
-  <div class="card"><span class="emoji">🧸</span><button onclick="hug('teddy')">Teddy Hug</button></div>
-  <div class="card"><span class="emoji">🐻</span><button onclick="hug('bear')">Bear Squeeze</button></div>
-  <div class="card"><span class="emoji">💗</span><button onclick="hug('heart')">Heart Hug</button></div>
+  <div class="card"><span class="emoji">🧸🤗</span><h3>Teddy Hug</h3><button onclick="hug('teddy')">Send hug 💗</button></div>
+  <div class="card"><span class="emoji">🐻💕</span><h3>Bear Squeeze</h3><button onclick="hug('bear')">Squeeze! 💞</button></div>
+  <div class="card"><span class="emoji">🪽💖</span><h3>Comfort Hug</h3><button onclick="hug('comfort')">Open arms 🫶</button></div>
  </div>
+ <div class="result" id="hugResult">Choose a hug to make hearts float! 💗</div>
 </section>
 
-<section id="surprise">
- <h2>🎁 Mystery Surprise Boxes</h2>
- <p>Tap any box. Each one has a different surprise!</p>
+<section id="surprises">
+ <div class="heading"><div class="eyebrow">🎁 Mystery time</div><h2>Choose a surprise box</h2><p class="sub">Every box hides a different cute surprise.</p></div>
  <div class="grid">
-  <div class="card"><span class="emoji">🎀</span><button onclick="gift(0)">Pink Box</button></div>
-  <div class="card"><span class="emoji">💜</span><button onclick="gift(1)">Magic Box</button></div>
-  <div class="card"><span class="emoji">🌟</span><button onclick="gift(2)">Secret Box</button></div>
+  <div class="card"><span class="emoji">🎀🎁</span><h3>Pink Box</h3><button onclick="gift(0)">Open me 💝</button></div>
+  <div class="card"><span class="emoji">💜🪄</span><h3>Magic Box</h3><button onclick="gift(1)">Open me ✨</button></div>
+  <div class="card"><span class="emoji">🌟🧸</span><h3>Secret Box</h3><button onclick="gift(2)">Open me 🥹</button></div>
  </div>
+ <div class="result" id="giftResult">Psst… something is waiting inside! 👀</div>
 </section>
 
 <section id="games">
- <h2>🎮 Mini Game Arcade</h2>
- <div class="card">
+ <div class="heading"><div class="eyebrow">🎮 Play corner</div><h2>Little games, big smiles</h2><p class="sub">Play all three games and collect your points!</p></div>
+ <div class="glass">
   <h3>💖 Game 1: Find the Heart</h3>
-  <p>Find the hidden heart in 3 tries!</p>
+  <p>Find the hidden heart. You get three tries!</p>
   <div id="board"></div>
-  <div id="score">Tries left: 3</div>
-  <button onclick="newHeartGame()">🔄 New Game</button>
+  <div class="result" id="heartStatus">Ready? Find the heart! 💗</div>
+  <button onclick="newHeartGame()">🔄 New game</button>
  </div>
- <div class="card">
+ <br>
+ <div class="glass">
   <h3>🧸 Game 2: Emoji Match</h3>
-  <p>Find two matching emojis!</p>
-  <div id="matchboard" class="grid"></div>
-  <div id="matchmsg">Tap two cards to find a pair.</div>
+  <p>Flip cards and find matching pairs.</p>
+  <div id="matchBoard" class="grid"></div>
+  <div class="result" id="matchStatus">Find all three pairs! 🌸</div>
   <button onclick="newMatch()">🔄 Restart</button>
  </div>
- <div class="card">
+ <br>
+ <div class="glass">
   <h3>⚡ Game 3: Quick Tap</h3>
-  <p>Tap the heart as many times as possible in 10 seconds!</p>
-  <div class="big" id="quickheart">💖</div>
-  <p>Score: <b id="quickscore">0</b></p>
-  <button id="quickstart" onclick="startQuick()">Start Challenge!</button>
-  <button id="quicktap" onclick="tapQuick()" disabled>Tap the Heart 💗</button>
-  <p id="quickmsg"></p>
+  <p>Tap the heart as many times as possible in 10 seconds.</p>
+  <div class="emoji" id="quickHeart">💖</div>
+  <h3>Score: <span id="quickScore">0</span></h3>
+  <button id="quickStart" onclick="startQuick()">Start challenge ⚡</button>
+  <button id="quickTap" onclick="tapQuick()" disabled>Tap the heart 💗</button>
+  <div class="result" id="quickStatus"></div>
  </div>
 </section>
 
 <section>
- <div class="big">🌙💗🦋</div>
- <h2>Sending you a little happiness!</h2>
- <p>May your day have cute moments, peaceful thoughts and plenty of reasons to smile. 💕</p>
- <button onclick="rainHearts(35)">Make it rain hearts 💖</button>
+ <div class="letter">
+  <div style="font-size:60px">🌙💌🦋</div>
+  <h2>A little reminder ♡</h2>
+  <p>You deserve kindness, peaceful moments, cute surprises and reasons to smile. Sending a little sparkle your way! 💗</p>
+  <button onclick="rain(35)">Make it rain hearts 💖</button>
+ </div>
 </section>
-
 <footer>Made with love ♡ For Bubu Baby</footer>
 
 <script>
-function go(id){
- document.getElementById(id).scrollIntoView({behavior:'smooth'});
- rainHearts(6)
-}
-function rainHearts(n=15){
- const icons=['💗','💖','💕','✨','🌸','🦋','🌟','🎀'];
+let fxIndex=0;
+const effects=['fx-pop','fx-spin','fx-wiggle','fx-glow','fx-flip','fx-bounce'];
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');
+ if(!b)return;
+ b.classList.remove(...effects);
+ void b.offsetWidth;
+ b.classList.add(effects[fxIndex++%effects.length]);
+ setTimeout(()=>b.classList.remove(...effects),900);
+});
+function rain(n=15){
+ const arr=['💗','💖','💕','✨','🌸','🦋','🌟','🎀','💫'];
  for(let i=0;i<n;i++){
-  const e=document.createElement('span');
-  e.className='float';
-  e.textContent=icons[Math.floor(Math.random()*icons.length)];
-  e.style.left=Math.random()*100+'vw';
-  e.style.bottom='-35px';
-  e.style.fontSize=(20+Math.random()*25)+'px';
-  e.style.animationDuration=(2+Math.random()*2)+'s';
-  document.body.appendChild(e);
-  setTimeout(()=>e.remove(),4500)
+  let x=document.createElement('span');x.className='floaty';
+  x.textContent=arr[Math.floor(Math.random()*arr.length)];
+  x.style.left=Math.random()*100+'vw';x.style.bottom='-35px';
+  x.style.fontSize=(18+Math.random()*25)+'px';
+  x.style.animationDuration=(2+Math.random()*2)+'s';
+  document.getElementById('sky').appendChild(x);
+  setTimeout(()=>x.remove(),4500);
  }
 }
-function magic(b){
- b.textContent='✨ Magic activated! 💖';
- b.animate([{transform:'scale(1)'},{transform:'scale(1.2) rotate(4deg)'},{transform:'scale(1)'}],{duration:600});
- rainHearts(25)
-}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});rain(8)}
 function mood(m){
- const text={
- happy:'Yayyy! Keep shining, cutie! ☀️💖',
- sleepy:'Blanket, pillow and cozy dreams for you. 🌙🧸',
- angry:'It’s okay to feel annoyed. Take your time. 🫶',
- sad:'Sending a gentle hug. You matter, always. 🫂💗',
- cute:'Madam Ji, main-character energy! 💅✨',
- meh:'No pressure today. Just breathe and relax. ☁️'
+ const t={
+ happy:'Yayyy! Keep that beautiful smile shining! ☀️💖',
+ sleepy:'Blanket burrito mode activated. Sweet dreams! 🌙🧸',
+ annoyed:'Take your time. Your feelings matter, too. 🫶',
+ hug:'A giant virtual hug, no explanation needed. 🤗💗',
+ cute:'Madam Ji, main-character energy today! 💅✨',
+ chill:'No pressure today. Just relax and breathe. ☁️🌷'
  };
- document.getElementById('message').textContent=text[m];
- rainHearts(12)
+ document.getElementById('moodResult').textContent=t[m];rain(14);
 }
 function hug(h){
- const text={
+ const t={
  teddy:'🧸 Teddy hug delivered! Extra squishy and warm!',
- bear:'🐻 Bear squeeze activated! Big virtual hug!',
- heart:'💗 Heart hug sent with extra love!'
+ bear:'🐻 Bear squeeze activated! Maximum cuddles!',
+ comfort:'🪽 A soft hug with no questions and no pressure. 💗'
  };
- document.getElementById('message').textContent=text[h];
- rainHearts(25)
+ document.getElementById('hugResult').textContent=t[h];rain(24);
 }
 function gift(i){
- const gifts=[
- '👑 Surprise! Today you are the queen of this little universe!',
- '🪄 Magic wish: may something lovely make you smile today!',
- '🧸 Secret gift: an imaginary teddy with unlimited hugs!'
+ const t=[
+ '👑 Surprise! An imaginary crown for the queen of this little universe! 💗',
+ '🪄 Magic wish: may something lovely make you smile today! ✨',
+ '🧸 Secret gift: an invisible teddy with unlimited hugs! 🤗'
  ];
- document.getElementById('message').textContent=gifts[i];
- rainHearts(30)
+ document.getElementById('giftResult').textContent=t[i];rain(28);
 }
 
-// Game 1: Find the hidden heart
-let heartTarget=0,tries=3,gameOver=false;
+// GAME 1: Find the heart
+let target=0,tries=3,over=false;
 function newHeartGame(){
- const board=document.getElementById('board');
- board.innerHTML='';tries=3;gameOver=false;
- heartTarget=Math.floor(Math.random()*9);
+ const board=document.getElementById('board');board.innerHTML='';
+ target=Math.floor(Math.random()*9);tries=3;over=false;
+ document.getElementById('heartStatus').textContent='Three tries. Find the hidden heart! 💗';
  for(let i=0;i<9;i++){
-  const b=document.createElement('button');
-  b.className='cell';b.textContent='❔';
+  const b=document.createElement('button');b.className='cell';b.textContent='❔';
   b.onclick=()=>{
-   if(gameOver||b.disabled)return;
+   if(over||b.disabled)return;
    b.disabled=true;
-   if(i===heartTarget){
-    b.textContent='💖';gameOver=true;
-    document.getElementById('score').textContent='You found it! You win! 🎉';
-    rainHearts(25)
+   if(i===target){
+    b.textContent='💖';b.classList.add('found');over=true;
+    document.getElementById('heartStatus').textContent='You found the heart! Bubu wins! 🎉';
+    rain(25);
    }else{
-    b.textContent=['🌸','🧸','🎀','🦋'][Math.floor(Math.random()*4)];
+    b.textContent=['🌸','🧸','🎀','🦋','⭐'][Math.floor(Math.random()*5)];
     tries--;
-    document.getElementById('score').textContent='Tries left: '+tries;
+    document.getElementById('heartStatus').textContent='Not this one! Tries left: '+tries;
     if(tries===0){
-     gameOver=true;
-     document.getElementById('score').textContent='The heart was hiding in box '+(heartTarget+1)+'! 💗';
-     board.children[heartTarget].textContent='💖'
+     over=true;board.children[target].textContent='💖';
+     document.getElementById('heartStatus').textContent='The heart was hiding in box '+(target+1)+'! Try again. 💗';
     }
    }
   };
-  board.appendChild(b)
+  board.appendChild(b);
  }
 }
 newHeartGame();
 
-// Game 2: Match a pair
-let firstCard=null,matchLock=false,matchedCount=0;
+// GAME 2: Match three pairs
+let first=null,locked=false,matched=0;
 function newMatch(){
- const emojis=['🐻','🌸','🎀','🐻','🌸','🎀'].sort(()=>Math.random()-.5);
- const board=document.getElementById('matchboard');
- board.innerHTML='';firstCard=null;matchLock=false;matchedCount=0;
- document.getElementById('matchmsg').textContent='Find all 3 pairs!';
- emojis.forEach((emoji)=>{
-  const b=document.createElement('button');
-  b.className='cell';b.textContent='❔';
+ const vals=['🐻','🌸','🎀','🐻','🌸','🎀'].sort(()=>Math.random()-.5);
+ const board=document.getElementById('matchBoard');board.innerHTML='';
+ first=null;locked=false;matched=0;
+ document.getElementById('matchStatus').textContent='Find all three pairs! 🧸';
+ vals.forEach(v=>{
+  const b=document.createElement('button');b.className='cell';b.textContent='❔';
   b.onclick=()=>{
-   if(matchLock||b.disabled)return;
-   b.textContent=emoji;
-   if(!firstCard){firstCard={b,emoji};return}
-   if(firstCard.b===b)return;
-   if(firstCard.emoji===emoji){
-    b.disabled=true;firstCard.b.disabled=true;matchedCount++;
-    firstCard=null;
-    document.getElementById('matchmsg').textContent=matchedCount===3?'All pairs found! Amazing! 🎉':'Correct match! 💗';
-    rainHearts(6)
+   if(locked||b.disabled||b.textContent===v)return;
+   b.textContent=v;b.classList.add('found');
+   if(!first){first={b,v};return}
+   if(first.b===b)return;
+   if(first.v===v){
+    first.b.disabled=true;b.disabled=true;first=null;matched++;
+    document.getElementById('matchStatus').textContent=matched===3?'All pairs found! You are a star! 🌟':'Correct match! 💗';
+    rain(7);
    }else{
-    matchLock=true;const prev=firstCard.b;firstCard=null;
-    setTimeout(()=>{b.textContent='❔';prev.textContent='❔';matchLock=false},700)
+    locked=true;const old=first.b;first=null;
+    setTimeout(()=>{old.textContent='❔';b.textContent='❔';old.classList.remove('found');b.classList.remove('found');locked=false},700);
    }
   };
-  board.appendChild(b)
- })
+  board.appendChild(b);
+ });
 }
 newMatch();
 
-// Game 3: 10-second quick tap
-let quickCount=0,quickTime=null,quickActive=false;
+// GAME 3: Quick Tap
+let qscore=0,qactive=false,qtime=null;
 function startQuick(){
- clearInterval(quickTime);quickCount=0;quickActive=true;
- document.getElementById('quickscore').textContent='0';
- document.getElementById('quickmsg').textContent='Go go go! 💖';
- document.getElementById('quicktap').disabled=false;
- document.getElementById('quickstart').disabled=true;
- let remaining=10;
- document.getElementById('quickstart').textContent=remaining+' seconds';
- quickTime=setInterval(()=>{
-  remaining--;
-  document.getElementById('quickstart').textContent=remaining+' seconds';
-  if(remaining<=0){
-   clearInterval(quickTime);quickActive=false;
-   document.getElementById('quicktap').disabled=true;
-   document.getElementById('quickstart').disabled=false;
-   document.getElementById('quickstart').textContent='Play Again!';
-   document.getElementById('quickmsg').textContent='Time up! Your score: '+quickCount+' 💗';
-   rainHearts(18)
+ clearInterval(qtime);qscore=0;qactive=true;
+ document.getElementById('quickScore').textContent='0';
+ document.getElementById('quickTap').disabled=false;
+ document.getElementById('quickStart').disabled=true;
+ let seconds=10;document.getElementById('quickStart').textContent='Time: '+seconds;
+ document.getElementById('quickStatus').textContent='Go go go! 💖';
+ qtime=setInterval(()=>{
+  seconds--;document.getElementById('quickStart').textContent='Time: '+seconds;
+  if(seconds<=0){
+   clearInterval(qtime);qactive=false;
+   document.getElementById('quickTap').disabled=true;
+   document.getElementById('quickStart').disabled=false;
+   document.getElementById('quickStart').textContent='Play again 🔄';
+   document.getElementById('quickStatus').textContent='Time up! Your score: '+qscore+' 💗';
+   rain(18);
   }
- },1000)
+ },1000);
 }
 function tapQuick(){
- if(!quickActive)return;
- quickCount++;
- document.getElementById('quickscore').textContent=quickCount;
- const h=document.getElementById('quickheart');
- h.animate([{transform:'scale(1)'},{transform:'scale(1.3)'},{transform:'scale(1)'}],{duration:220});
- rainHearts(2)
+ if(!qactive)return;
+ qscore++;document.getElementById('quickScore').textContent=qscore;
+ const h=document.getElementById('quickHeart');
+ h.animate([{transform:'scale(1)'},{transform:'scale(1.35)'},{transform:'scale(1)'}],{duration:220});
+ rain(2);
 }
 </script>
 </body>
